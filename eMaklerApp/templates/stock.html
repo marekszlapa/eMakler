@@ -21,7 +21,7 @@
         }
     </style>
 
-    <title>Strona główna</title>
+    <title>Giełda</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
@@ -33,7 +33,7 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <!-- <a style="color: #1595D1" class="nav-link" href="#" onMouseOver="this.style.color='#FFFFFF'" onMouseOut="this.style.color='#1595D1'">Home <span class="sr-only">(current)</span></a> -->
-                <a class="nav-link" href="#">Strona główna <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Strona główna  <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Giełda</a>
@@ -49,12 +49,56 @@
         </ul>
       </div>
     </nav>
-    <div class="text-center">
-        <h1>{{ news.category }}{{ news.headline }}</h1><br>
-        <img src={{ news.image }}>
-        <h3>{{ news.summary }}</h3><br>
-        <h3>Więcej informacji na stronie: {{ news.url }}</h3>
-    </div>
+
+    <h1 class="text-center">Akcje</h1>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr class="text-center">
+                <!-- Your Columns HERE -->
+{#                <th scope="col">ID</th>#}
+                <th scope="col">Nazwa</th>
+                <th scope="col">Cena</th>
+                <th scope="col">Opcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+{#            {% for akcja in lista_akcji %}#}
+{#                <tr class="text-center">#}
+{#                    <td>{{ akcja.description }}</td>#}
+{#                    <td>{{ cena_appl }}</td>#}
+{#                    <td>#}
+{#                        <button class="btn btn-outline btn-info">Więcej informacji</button>#}
+{#                        <button class="btn btn-outline btn-success">Zakup akcje</button>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+
+{#            {% for stock in stocks %}#}
+{##}
+{#                <tr class="text-center">#}
+{#                    <td>{{ stock.id }}</td>#}
+{#                    <td>{{ stock.name }}</td>#}
+{#                    <td>{{ stock.price }}$</td>#}
+{#                    <td>#}
+{#                        <button class="btn btn-outline btn-info">Więcej informacji</button>#}
+{#                        <button class="btn btn-outline btn-success">Zakup akcje</button>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+
+        {% for akcja, cena in lista_calosc %}
+                <tr class="text-center">
+                    <td>{{ akcja.description }}</td>
+                    <td>{{ cena }}</td>
+                    <td>
+                        <button class="btn btn-outline btn-info">Więcej informacji</button>
+                        <button class="btn btn-outline btn-success">Zakup akcje</button>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -70,8 +114,8 @@
   </body>
   <style>
       body {
-        background-color: #302F2D;
-        color: #FFFFFF
+        background-color: #212121;
+        color: white
       }
   </style>
 </html>

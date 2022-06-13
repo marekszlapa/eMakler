@@ -16,7 +16,7 @@ def home_page():
 @app.route('/stock')
 def stock_page():
     # cena_appl = finnhub_client.quote('AAPL')["c"]
-    lista_akcji = finnhub_client.stock_symbols('US')[1:10]
+    lista_akcji = finnhub_client.stock_symbols('US')[0:10]
     cena_appl = list()
 
     for nazwa in lista_akcji:

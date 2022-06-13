@@ -55,19 +55,42 @@
         <thead>
             <tr class="text-center">
                 <!-- Your Columns HERE -->
-                <th scope="col">ID</th>
-                <th scope="col">Nazwa akcji</th>
+{#                <th scope="col">ID</th>#}
+                <th scope="col">Nazwa</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Opcje</th>
             </tr>
         </thead>
         <tbody>
             <!-- Your rows inside the table HERE: -->
-            {% for stock in stocks %}
+{#            {% for akcja in lista_akcji %}#}
+{#                <tr class="text-center">#}
+{#                    <td>{{ akcja.description }}</td>#}
+{#                    <td>{{ cena_appl }}</td>#}
+{#                    <td>#}
+{#                        <button class="btn btn-outline btn-info">Więcej informacji</button>#}
+{#                        <button class="btn btn-outline btn-success">Zakup akcje</button>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+
+{#            {% for stock in stocks %}#}
+{##}
+{#                <tr class="text-center">#}
+{#                    <td>{{ stock.id }}</td>#}
+{#                    <td>{{ stock.name }}</td>#}
+{#                    <td>{{ stock.price }}$</td>#}
+{#                    <td>#}
+{#                        <button class="btn btn-outline btn-info">Więcej informacji</button>#}
+{#                        <button class="btn btn-outline btn-success">Zakup akcje</button>#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+
+        {% for akcja, cena in lista_calosc %}
                 <tr class="text-center">
-                    <td>{{ stock.id }}</td>
-                    <td>{{ stock.name }}</td>
-                    <td>{{ stock.price }}$</td>
+                    <td>{{ akcja.description }}</td>
+                    <td>{{ cena }}</td>
                     <td>
                         <button class="btn btn-outline btn-info">Więcej informacji</button>
                         <button class="btn btn-outline btn-success">Zakup akcje</button>

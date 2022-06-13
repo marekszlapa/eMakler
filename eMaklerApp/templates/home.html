@@ -49,8 +49,12 @@
         </ul>
       </div>
     </nav>
-
-    <h1>Lorem Ipsum</h1>
+    <div class="text-center">
+        <h1>{{ news.category }}{{ news.headline }}</h1><br>
+        <img src={{ news.image }}>
+        <h3>{{ news.summary }}</h3><br>
+        <h3>Więcej informacji na stronie: {{ news.url }}</h3>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

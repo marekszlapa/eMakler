@@ -1,8 +1,11 @@
 from flask import Flask, render_template
 import finnhub
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
+
 app = Flask(__name__)
 finnhub_client = finnhub.Client(api_key="caitgjqad3i2a9kcigrg")
-
+app.config['SECRET_KEY'] = '5202544640dd925e91d97f2a'
 # Stock candles
 
 
@@ -26,3 +29,15 @@ def stock_page():
     #     print(item)
 
     return render_template('stock.html', lista_calosc=lista_calosc)
+
+class RegisterForm(FlaskForm):
+    username = StringField(label='User Name:')
+    email_address = StringField(label='Email Address:')
+    password1 = PasswordField(label='Password:')
+    password2 = PasswordField(label='Confirm Password:')
+    submit = SubmitField(label='Create Account')
+
+@app.route('/register')
+def register_page():
+    form = RegisterForm()
+    return render_template('register.html', form=form)

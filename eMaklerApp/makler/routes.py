@@ -2,6 +2,7 @@ from makler import app
 from flask import render_template
 from makler.models import Akcje
 from makler import finnhub_client
+from makler.forms import RegisterForm
 
 @app.route('/')
 @app.route('/home')
@@ -22,3 +23,8 @@ def stock_page():
     #     print(item)
 
     return render_template('stock.html', lista_calosc=lista_calosc)
+
+@app.route('/register')
+def register_page():
+    form = RegisterForm()
+    return render_template('register.html', form=form)

@@ -1,0 +1,2 @@
+Flask>=2.1.2
+finnhub-python>=2.4.13 

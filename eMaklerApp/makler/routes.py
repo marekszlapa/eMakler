@@ -4,7 +4,7 @@ from makler.models import Akcje, User
 from makler import finnhub_client
 from makler.forms import RegisterForm, LoginForm
 from makler import db
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 
 @app.route('/')
 @app.route('/home')
@@ -14,6 +14,7 @@ def home_page():
 
 
 @app.route('/stock')
+@login_required
 def stock_page():
     # cena_appl = finnhub_client.quote('AAPL')["c"]
     lista_akcji = finnhub_client.stock_symbols('US')[0:10]
@@ -35,6 +36,8 @@ def register_page():
                               password=form.password1.data)
         db.session.add(user_to_create)
         db.session.commit()
+        login_user(user_to_create)
+        flash(f'Konto zostało utworzone. Zalogowano jako: {user_to_create.username}', category='success')
         return redirect(url_for('stock_page'))
     if form.errors != {}:
         for err_msg in form.errors.values():
@@ -56,3 +59,9 @@ def login_page():
             flash('Złe hasło i/lub nazwa użytkownika. Spróbuj ponownie.', category='danger')
 
     return render_template('login.html', form=form)
+
+@app.route('/logout')
+def logout_page():
+    logout_user()
+    flash("Zostałeś wylogowany.", category='info')
+    return redirect(url_for("home_page"))

@@ -6,6 +6,7 @@ Rejestracja
 {% block content %}
 <body class="text-center">
     <div class="container">
+        <img src="{{url_for('static', filename='Logo1.png')}}" align="middle" />
         <form method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }}
             <h1 class="h3 mb-3 font-weight-normal">

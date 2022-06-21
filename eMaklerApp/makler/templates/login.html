@@ -6,6 +6,7 @@ Logowanie
 {% block content %}
 <body class="text-center">
     <div class="container">
+        <img src="{{url_for('static', filename='Logo1.png')}}" align="middle" />
         <form method="POST" class="form-signing" style="color:white">
             {{ form.hidden_tag() }}
             <h1 class="h3 mb-3 font-weight-normal">
@@ -20,12 +21,12 @@ Logowanie
 
             <br>
 
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
             <div class="checkbox mb-3">
                <h6>Nie masz konta?</h6>
                <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Zarejestruj się</a>
             </div>
-
-            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
 
         </form>
     </div>

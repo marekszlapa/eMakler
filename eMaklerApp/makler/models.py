@@ -32,13 +32,28 @@ class User(db.Model, UserMixin):
     def check_password_correction(self, attempted_password):
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
+    def can_purchase(self, item_obj):
+        return self.budget >= item_obj.price
+
+    def can_sell(self, item_obj):
+        return item_obj in self.items
 
 class Akcje(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    nazwa = db.Column(db.String(length=50), nullable=False)
-    cena = db.Column(db.Float(), nullable=False)
+    name = db.Column(db.String(length=50), nullable=False)
+    price = db.Column(db.Float(), nullable=False)
     ilosc = db.Column(db.Integer(), nullable=False)
-    wlasciciel = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    owner = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return f'Akcje {self.nazwa}'
+        return f'Akcje {self.name}'
+
+    def buy(self, user):
+        self.owner = user.id
+        user.budget -= self.price
+        db.session.commit()
+
+    def sell(self, user):
+        self.owner = None
+        user.budget += self.price
+        db.session.commit()

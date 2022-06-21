@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, HiddenField
 from wtforms.validators import Length, EqualTo, Email, DataRequired, ValidationError
 from makler.models import User
 
@@ -26,3 +26,9 @@ class LoginForm(FlaskForm):
     username = StringField(label='Nazwa użytkownika:', validators=[DataRequired()])
     password = PasswordField(label='Hasło:', validators=[DataRequired()])
     submit = SubmitField(label='Zaloguj')
+
+class PurchaseItemForm(FlaskForm):
+    submit = SubmitField(label='Kup akcje!')
+
+class SellItemForm(FlaskForm):
+    submit = SubmitField(label='Sprzedaj akcje!')

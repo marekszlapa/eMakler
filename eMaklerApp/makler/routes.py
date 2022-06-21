@@ -9,7 +9,7 @@ from flask_login import login_user
 @app.route('/')
 @app.route('/home')
 def home_page():
-    news = finnhub_client.general_news('general')[0]
+    news = [finnhub_client.general_news('general')[0],finnhub_client.general_news('general')[1],finnhub_client.general_news('general')[2],finnhub_client.general_news('general')[3],finnhub_client.general_news('general')[4],finnhub_client.general_news('general')[5]]
     return render_template('home.html', news=news)
 
 

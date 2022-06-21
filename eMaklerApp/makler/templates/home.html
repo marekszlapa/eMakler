@@ -4,10 +4,16 @@
 {% endblock %}
 
 {% block content %}
-    <div class="text-center">
-        <h1>{{ news.category }}: {{ news.headline }}</h1><br>
-        <img src={{ news.image }}>
-        <h3>{{ news.summary }}</h3><br>
-        <h3>Więcej informacji na stronie: {{ news.url }}</h3>
+    <div class="w-75 mx-auto">
+        <div class="container-fluid row align-self-center  ">
+            {% for info in news %}
+            <div class="text-center col-md-6 border border-success rounded p-4">
+                <h2>{{ info.category }}: {{ info.headline }}</h2><br>
+                <img src={{ info.image }} class="img-fluid rounded">
+                <h4>{{ info.summary }}</h4><br>
+                <h6>Więcej informacji na stronie: <a href={{ info.url }}>{{ info.url }}</a></h6>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}

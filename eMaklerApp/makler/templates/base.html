@@ -42,14 +42,32 @@
                 <a class="nav-link" href="{{ url_for('stock_page') }}">Giełda</a>
             </li>
         </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logowanie</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('register_page') }}">Rejestracja</a>
-            </li>
-        </ul>
+          {% if current_user.is_authenticated %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: lawngreen; font-weight: bold">
+                        <i class="fas fa-coins"></i>
+                        {{ current_user.prettier_budget }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Witaj {{ current_user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Wyloguj</a>
+                </li>
+            </ul>
+          {% else %}
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login_page') }}">Logowanie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register_page') }}">Rejestracja</a>
+                </li>
+            </ul>
+          {% endif %}
+
       </div>
     </nav>
         {% with messages = get_flashed_messages(with_categories=true) %}

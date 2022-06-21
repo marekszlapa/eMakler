@@ -1,46 +1,36 @@
 {% extends 'base.html' %}
 {% block title %}
-Rejestracja
+Logowanie
 {% endblock %}
 
 {% block content %}
 <body class="text-center">
     <div class="container">
         <img src="{{url_for('static', filename='Logo1.png')}}" align="middle" />
-        <form method="POST" class="form-register" style="color:white">
+        <form method="POST" class="form-signing" style="color:white">
             {{ form.hidden_tag() }}
             <h1 class="h3 mb-3 font-weight-normal">
-                Proszę stworzyć konto
+                Zaloguj się
             </h1>
             <br>
             {{ form.username.label() }}
             {{ form.username(class="form-control", placeholder="Nazwa użytkownika") }}
             <br>
 
-            {{ form.email_address.label() }}
-            {{ form.email_address(class="form-control", placeholder="Adres e-mail") }}
-            <br>
-
-            {{ form.password1.label() }}
-            {{ form.password1(class="form-control", placeholder="Hasło") }}
-            <br>
-
-            {{ form.password2.label() }}
-            {{ form.password2(class="form-control", placeholder="Potwierdź hasło") }}
-
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="Hasło") }}
 
             <br>
             <br>
 
             {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
             <br>
 
             <div class="checkbox mb-3">
-               <h6>Masz już konto?</h6>
-               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Zaloguj się</a>
+               <h6>Nie masz konta?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Zarejestruj się</a>
             </div>
-
-
 
         </form>
     </div>

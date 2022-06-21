@@ -1,2 +1,5 @@
 Flask>=2.1.2
-finnhub-python>=2.4.13 
+finnhub-python>=2.4.13
+Flask-SQLAlchemy>=2.5.1
+Flask-WTF>=1.0.1
+WTForms~=3.0.1

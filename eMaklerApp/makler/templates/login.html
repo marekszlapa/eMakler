@@ -15,15 +15,19 @@ Logowanie
             <br>
             {{ form.username.label(class="mt-2") }}
             {{ form.username(class="form-control", placeholder="Nazwa użytkownika") }}
+            <br>
 
             {{ form.password.label(class="mt-2") }}
             {{ form.password(class="form-control", placeholder="Hasło") }}
 
             <br>
+            <br>
 
             {{ form.submit(class="btn btn-lg btn-block btn-primary mt-2 ", style="background-color: rgb(53,208,20); color: #302F2D") }}
 
+
             <div class="checkbox mt-2 mb-3">
+
                <h6>Nie masz konta?</h6>
                <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}" style="background-color: rgb(53,208,20); color: #302F2D">Zarejestruj się</a>
             </div>

@@ -15,16 +15,24 @@ Rejestracja
             <br>
             {{ form.username.label(class="mt-2") }}
             {{ form.username(class="form-control", placeholder="Nazwa użytkownika") }}
+            <br>
 
             {{ form.email_address.label(class="mt-2") }}
             {{ form.email_address(class="form-control", placeholder="Adres e-mail") }}
+            <br>
 
             {{ form.password1.label(class="mt-2") }}
             {{ form.password1(class="form-control", placeholder="Hasło") }}
+            <br>
 
             {{ form.password2.label(class="mt-2") }}
             {{ form.password2(class="form-control", placeholder="Potwierdź hasło") }}
 
+
+            <br>
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
             <br>
 
             {{ form.submit(class="btn btn-lg btn-block btn-primary", style="background-color: rgb(53,208,20); color: #302F2D") }}
@@ -33,6 +41,7 @@ Rejestracja
                <h6>Masz już konto?</h6>
                <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}" style="background-color: rgb(53,208,20); color: #302F2D">Zaloguj się</a>
             </div>
+
 
         </form>
     </div>

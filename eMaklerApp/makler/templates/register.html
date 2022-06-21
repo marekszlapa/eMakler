@@ -9,30 +9,30 @@ Rejestracja
         <img src="{{url_for('static', filename='Logo1.png')}}" align="middle" />
         <form method="POST" class="form-register" style="color:white">
             {{ form.hidden_tag() }}
-            <h1 class="h3 mb-3 font-weight-normal">
+            <h1 class="h3 font-weight-normal">
                 Proszę stworzyć konto
             </h1>
             <br>
-            {{ form.username.label() }}
+            {{ form.username.label(class="mt-2") }}
             {{ form.username(class="form-control", placeholder="Nazwa użytkownika") }}
 
-            {{ form.email_address.label() }}
+            {{ form.email_address.label(class="mt-2") }}
             {{ form.email_address(class="form-control", placeholder="Adres e-mail") }}
 
-            {{ form.password1.label() }}
+            {{ form.password1.label(class="mt-2") }}
             {{ form.password1(class="form-control", placeholder="Hasło") }}
 
-            {{ form.password2.label() }}
+            {{ form.password2.label(class="mt-2") }}
             {{ form.password2(class="form-control", placeholder="Potwierdź hasło") }}
 
             <br>
 
-            <div class="checkbox mb-3">
-               <h6>Masz już konto?</h6>
-               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Zaloguj się</a>
-            </div>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary", style="background-color: rgb(53,208,20); color: #302F2D") }}
 
-            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <div class="checkbox mt-2">
+               <h6>Masz już konto?</h6>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}" style="background-color: rgb(53,208,20); color: #302F2D">Zaloguj się</a>
+            </div>
 
         </form>
     </div>

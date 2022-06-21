@@ -36,10 +36,10 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <!-- <a style="color: #1595D1" class="nav-link" href="#" onMouseOver="this.style.color='#FFFFFF'" onMouseOut="this.style.color='#1595D1'">Home <span class="sr-only">(current)</span></a> -->
-                <a class="nav-link" href="#">Strona główna <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{{ url_for('home_page') }}">Strona główna <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Giełda</a>
+                <a class="nav-link" href="{{ url_for('stock_page') }}">Giełda</a>
             </li>
         </ul>
         <ul class="navbar-nav">
@@ -47,11 +47,24 @@
                 <a class="nav-link" href="#">Logowanie</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Rejestracja</a>
+                <a class="nav-link" href="{{ url_for('register_page') }}">Rejestracja</a>
             </li>
         </ul>
       </div>
     </nav>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+               {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                      <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      {{ message }}
+                  </div>
+               {% endfor %}
+            {% endif %}
+          {% endwith %}
+
       {% block content %}
 
       {% endblock %}

@@ -9,27 +9,27 @@ Logowanie
         <img src="{{url_for('static', filename='Logo1.png')}}" align="middle" />
         <form method="POST" class="form-signing" style="color:white">
             {{ form.hidden_tag() }}
-            <h1 class="h3 mb-3 font-weight-normal">
+            <h1 class="h3 mt-3 font-weight-normal">
                 Zaloguj się
             </h1>
             <br>
-            {{ form.username.label() }}
+            {{ form.username.label(class="mt-2") }}
             {{ form.username(class="form-control", placeholder="Nazwa użytkownika") }}
             <br>
 
-            {{ form.password.label() }}
+            {{ form.password.label(class="mt-2") }}
             {{ form.password(class="form-control", placeholder="Hasło") }}
 
             <br>
             <br>
 
-            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            {{ form.submit(class="btn btn-lg btn-block btn-primary mt-2 ", style="background-color: rgb(53,208,20); color: #302F2D") }}
 
-            <br>
 
-            <div class="checkbox mb-3">
+            <div class="checkbox mt-2 mb-3">
+
                <h6>Nie masz konta?</h6>
-               <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Zarejestruj się</a>
+               <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}" style="background-color: rgb(53,208,20); color: #302F2D">Zarejestruj się</a>
             </div>
 
         </form>
